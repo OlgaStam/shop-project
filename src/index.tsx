@@ -1,10 +1,7 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
-//импорт Хедер до начала кода, всегда вверху
-//дефолтній экспорт
-// import Header from './Header'
-//именованный экспорт
-import { Header } from './Header'
+
+import Header from './Header'
 
 const Content = () => {
     return (
@@ -28,8 +25,9 @@ const Content = () => {
 const App = () => {
     return (
         <React.Fragment>
-            <Header />
+            <Header title="React" year={2015} />
             <Content />
+            <Header title="TS" year={2019} />
         </React.Fragment>
     )
 }
