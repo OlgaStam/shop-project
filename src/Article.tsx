@@ -1,24 +1,17 @@
 //snippet tsrafce
 import React from 'react'
+import './Article.css'
 
 type Props = {
     title: string
     description: string
     author: string
 }
-//стилизация с условиями
+//стилизация с CSS
 const Article = ({ title, description, author }: Props) => {
     return (
         <>
-            <h2
-                style={{
-                    backgroundColor: title === 'News 1' ? 'purple' : 'green',
-                    color: 'white',
-                    padding: '15px',
-                }}
-            >
-                {title}
-            </h2>
+            <h2 className="article-title">{title}</h2>
             <p>{description}</p>
             <div>Author: {author}</div>
         </>
