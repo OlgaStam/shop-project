@@ -1,13 +1,7 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
-
-//элементы всегда возвращаем один элемент (много заворачиваем в один)
-//компоненты перепишем в виде стрелковой функции
-// для компонентов используют ПаскальКейс, для обычных функций кэмелКейс
-// вызываются как теги
-const Header = () => {
-    return <h1>Hello React</h1>
-}
+//импорт Хедер до начала кода, всегда вверху
+import Header from './Header'
 
 const Content = () => {
     return (
@@ -27,8 +21,7 @@ const Content = () => {
         </>
     )
 }
-//большая вложеннось дивов не айс, придумали реакт-фрагмент
-//<React.Fragment> или просто <>
+
 const App = () => {
     return (
         <React.Fragment>
