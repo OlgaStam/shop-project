@@ -1,13 +1,13 @@
 //snippet tsrafce
 import React from 'react'
-import './Article.css'
+import './Article.scss'
 
 type Props = {
     title: string
     description: string
     author: string
 }
-//стилизация с CSS
+//стилизация с SCSS
 const Article = ({ title, description, author }: Props) => {
     return (
         <>
