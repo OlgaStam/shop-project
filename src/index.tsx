@@ -11,7 +11,7 @@ const Header = () => {
 
 const Content = () => {
     return (
-        <div>
+        <>
             <p>
                 Lorem ipsum dolor sit amet consectetur adipisicing elit.
                 Explicabo suscipit reprehenderit aliquam, possimus repellendus
@@ -24,15 +24,17 @@ const Content = () => {
                 error esse provident sit quis quia architecto repellat adipisci
                 consectetur sed. Non et aspernatur rem dolorem!
             </p>
-        </div>
+        </>
     )
 }
+//большая вложеннось дивов не айс, придумали реакт-фрагмент
+//<React.Fragment> или просто <>
 const App = () => {
     return (
-        <div>
+        <React.Fragment>
             <Header />
             <Content />
-        </div>
+        </React.Fragment>
     )
 }
 //в рут передаем только корневой компонент, его структуру расписываем выше
