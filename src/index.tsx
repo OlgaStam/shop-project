@@ -35,6 +35,7 @@ const App = () => {
         </div>
     )
 }
+//в рут передаем только корневой компонент, его структуру расписываем выше
 const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement)
 root.render(
     <React.StrictMode>
