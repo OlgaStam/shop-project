@@ -8,7 +8,7 @@ const Header = ({ title, year }: Props) => {
     // console.log(props)
     return (
         <h1>
-            {/* Hello {props.title}, Year ={props.year} */}
+            {/* Hello {props.title}, Year ={props.year}  */}
             Hello {title}, Year ={year}
         </h1>
     )

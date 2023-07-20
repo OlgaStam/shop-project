@@ -1,7 +1,7 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
-
 import Header from './Header'
+import Article from './Article'
 
 const Content = () => {
     return (
@@ -28,6 +28,8 @@ const App = () => {
             <Header title="React" year={2015} />
             <Content />
             <Header title="TS" year={2019} />
+            <Article title="Заголовок" description="Текст" author="Аффтор" />
+            <Article title="Заголовок" description="Текст" author="Аффтор" />
         </React.Fragment>
     )
 }
