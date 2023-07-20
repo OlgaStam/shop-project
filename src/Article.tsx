@@ -6,11 +6,19 @@ type Props = {
     description: string
     author: string
 }
-
+//добавим стили, style - это объект, сожно передать разные свойства, и переменные (это позже)
 const Article = ({ title, description, author }: Props) => {
     return (
         <>
-            <h2>{title}</h2>
+            <h2
+                style={{
+                    backgroundColor: 'purple',
+                    color: 'white',
+                    padding: '15px',
+                }}
+            >
+                {title}
+            </h2>
             <p>{description}</p>
             <div>Author: {author}</div>
         </>
@@ -18,21 +26,3 @@ const Article = ({ title, description, author }: Props) => {
 }
 
 export default Article
-
-// type Props = {
-//     title: string
-//     description: string
-//     author: string
-// }
-
-// const Article = ({ title, description, author }: Props) => {
-//     return (
-//         <>
-//             <h1>{title}</h1>
-//             <p>{description}</p>
-//             <h4>{author}</h4>
-//         </>
-//     )
-// }
-
-// export default Article
