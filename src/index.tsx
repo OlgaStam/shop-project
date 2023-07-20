@@ -1,7 +1,10 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
 //импорт Хедер до начала кода, всегда вверху
-import Header from './Header'
+//дефолтній экспорт
+// import Header from './Header'
+//именованный экспорт
+import { Header } from './Header'
 
 const Content = () => {
     return (

@@ -1,6 +1,9 @@
-const Header = () => {
+//именованный экспорт
+export const Header = () => {
     return <h1>Hello React</h1>
 }
-
-export default Header
-//будем эту функцию переиспользовать в другом файле
+//дефолтный экспорт
+// const Header = () => {
+// return <h1>Hello React</h1>
+// }
+// export default Header
