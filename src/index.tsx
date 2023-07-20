@@ -28,8 +28,8 @@ const App = () => {
             <Header title="React" year={2015} />
             <Content />
             <Header title="TS" year={2019} />
-            <Article title="Заголовок1" description="Текст1" author="Аффтор1" />
-            <Article title="Заголовок2" description="Текст2" author="Аффтор2" />
+            <Article title="News 1" description="Текст1" author="Аффтор1" />
+            <Article title="News 2" description="Текст2" author="Аффтор2" />
         </React.Fragment>
     )
 }

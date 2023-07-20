@@ -6,13 +6,13 @@ type Props = {
     description: string
     author: string
 }
-//добавим стили, style - это объект, сожно передать разные свойства, и переменные (это позже)
+//стилизация с условиями
 const Article = ({ title, description, author }: Props) => {
     return (
         <>
             <h2
                 style={{
-                    backgroundColor: 'purple',
+                    backgroundColor: title === 'News 1' ? 'purple' : 'green',
                     color: 'white',
                     padding: '15px',
                 }}
