@@ -1,7 +1,5 @@
-//snippet tsrafce
-import React from 'react'
-import './Article.scss'
-
+import classes from './Article.module.scss'
+console.log(classes)
 type Props = {
     title: string
     description: string
@@ -11,7 +9,7 @@ type Props = {
 const Article = ({ title, description, author }: Props) => {
     return (
         <>
-            <h2 className="article-title">{title}</h2>
+            <h2 className={classes['title']}>{title}</h2>
             <p>{description}</p>
             <div>Author: {author}</div>
         </>
