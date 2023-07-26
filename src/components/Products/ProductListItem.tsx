@@ -20,7 +20,7 @@ const ProductListItem = ({
     return (
         <Card variant="outlined">
             <CardContent>
-                <h4 className="product-title">iPhone {title}</h4>
+                <h4 className="product-title">{title}</h4>
                 <p className="product-description">{description}</p>
                 <div className="product-features">Type: {type}</div>
                 <div className="product-features">Capacity: {capacity}Gb</div>
