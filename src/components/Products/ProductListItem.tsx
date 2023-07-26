@@ -1,4 +1,10 @@
-import { Card, Button, CardActions, CardContent } from '@mui/material'
+import {
+    Card,
+    Button,
+    CardActions,
+    CardContent,
+    TextField,
+} from '@mui/material'
 import './ProductListItem.scss'
 // import PhoneType from './PhoneType'
 
@@ -32,7 +38,12 @@ const ProductListItem = ({
                 <div className="product-price">
                     Price: <span>${price}</span>
                 </div>
-                <CardActions className="btn-wrap">
+                <div className="product-quantity">
+                    <Button variant="outlined">-</Button>
+                    <TextField value="1" size="small" />
+                    <Button variant="outlined">+</Button>
+                </div>
+                <CardActions className="btns-wrap">
                     <Button variant="outlined">Add to cart</Button>
                 </CardActions>
             </CardContent>

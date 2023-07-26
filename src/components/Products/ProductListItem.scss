@@ -31,7 +31,17 @@
     }
 }
 
-.btn-wrap {
+.btns-wrap {
     display: flex;
     justify-content: center;
+}
+
+.product-quantity {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 15px;
+
+    input {
+        text-align: center
+    }
 }
