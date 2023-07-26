@@ -11,7 +11,7 @@ const ProductList = (props: Props) => {
                 variant="h4"
                 component={'h1'}
                 sx={{
-                    marginTop: '30px',
+                    margin: '30px',
                     textTransform: 'uppercase',
                 }}
                 align="center"
