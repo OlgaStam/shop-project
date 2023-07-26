@@ -21,6 +21,16 @@
     }
 }
 
+.product-image {
+    margin-bottom: 15px;
+    text-align: center;
+
+    img {
+        height: 170px;
+        width: auto;
+    }
+}
+
 .btn-wrap {
     display: flex;
     justify-content: center;
