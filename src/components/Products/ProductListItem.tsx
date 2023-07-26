@@ -22,8 +22,8 @@ const ProductListItem = ({
     return (
         <Card variant="outlined">
             <CardContent>
-                <div>
-                    <img src={image} alt="iPhone" />
+                <div className="product-image">
+                    <img src={image} alt={title} />
                 </div>
                 <h4 className="product-title">{title}</h4>
                 <p className="product-description">{description}</p>
