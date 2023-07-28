@@ -46,11 +46,19 @@ const ProductListItem = ({
                     Price: <span>${price}</span>
                 </div>
                 <div className="product-quantity">
-                    <Button variant="outlined" onClick={onDecrementClick}>
+                    <Button
+                        variant="outlined"
+                        onClick={onDecrementClick}
+                        disabled={count <= 1}
+                    >
                         -
                     </Button>
                     <TextField value={count} size="small" />
-                    <Button variant="outlined" onClick={onIncrementClick}>
+                    <Button
+                        variant="outlined"
+                        onClick={onIncrementClick}
+                        disabled={count >= 10}
+                    >
                         +
                     </Button>
                 </div>
