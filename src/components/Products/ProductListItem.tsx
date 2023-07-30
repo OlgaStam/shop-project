@@ -32,10 +32,7 @@ const ProductListItem = ({
     const onDecrementClick = () => {
         setCount((prevState) => prevState - 1)
     }
-    const [color, setColor] = useState<string>('green')
-    const changeColor = () => {
-        setColor((prevState) => (prevState === 'green' ? 'red' : 'green'))
-    }
+
     return (
         <Card variant="outlined">
             <CardContent>
@@ -49,10 +46,6 @@ const ProductListItem = ({
                 <div className="product-price">
                     Price: <span>${price}</span>
                 </div>
-                <div>
-                    Color: <span className={color}>{color}</span>
-                </div>
-                <button onClick={changeColor}>Change color</button>
                 <div className="product-quantity">
                     <Button
                         variant="outlined"
