@@ -26,8 +26,7 @@ const addProductToCart =(count: number, price:number)=>{
         <StyledEngineProvider injectFirst>
             <CssBaseline />
             <Header cartData={cartData} />
-            <button onClick={()=> addProductToCart(5,500)}>add to cart (count:5, prise:500$)</button>
-            <Main />
+            <Main addProductToCart={addProductToCart}/>
         </StyledEngineProvider>
     )
 }
