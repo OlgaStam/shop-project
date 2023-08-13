@@ -8,7 +8,7 @@ const CartHeader = ({cartData}: Props) => {
     return (
         <div>
             <div>{cartData.totalCount}</div>
-            <div>${cartData.totalPrice}</div>
+            <div>$ {cartData.totalPrice}</div>
         </div>
     )
 }
