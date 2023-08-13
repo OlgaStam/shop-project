@@ -9,6 +9,7 @@ import '../../components/Logo/Logo'
 import Logo from '../../components/Logo/Logo'
 import Menu from 'components/Menu/Menu'
 import CartHeader from 'components/CartHeader/CartHeader'
+
 type Props = {
     cartData:{
         totalCount: number
@@ -41,7 +42,7 @@ const Header = ({cartData}: Props) => {
                         <Logo />
                     </Typography>
                     <Menu />
-                    <CartHeader />
+                    <CartHeader cartData={cartData} />
                 </Toolbar>
             </Container>
         </AppBar>
