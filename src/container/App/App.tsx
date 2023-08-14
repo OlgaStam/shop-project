@@ -3,6 +3,8 @@ import CssBaseline from '@mui/material/CssBaseline'
 import { StyledEngineProvider } from '@mui/material/styles'
 import Main from 'container/Main/Main'
 import { useState } from 'react'
+import { Route, Routes } from 'react-router-dom'
+import Home from 'pages/Home/Home'
 
 type Props = {}
 
@@ -26,6 +28,9 @@ const App = (props: Props) => {
         <StyledEngineProvider injectFirst>
             <CssBaseline />
             <Header productsInCart={productsInCart} />
+<Routes>
+    <Route path='/' element={<Home addProductToCart={addProductToCart }/>} />
+</Routes>
             <Main addProductToCart={addProductToCart} />
         </StyledEngineProvider>
     )
