@@ -1,10 +1,11 @@
+import Container from '@mui/material/Container'
 import Header from 'container/Header/Header'
 import CssBaseline from '@mui/material/CssBaseline'
 import { StyledEngineProvider } from '@mui/material/styles'
+import Home from 'pages/Home/Home'
 import { useState } from 'react'
 import { Route, Routes } from 'react-router-dom'
-import Home from 'pages/Home/Home'
-import Container from '@mui/material/Container'
+import CartPage from 'pages/Cart/CartPage'
 
 type Props = {}
 
@@ -34,6 +35,7 @@ const App = (props: Props) => {
                     path="/"
                     element={<Home addProductToCart={addProductToCart} />}
                 />
+                <Route path='/cart' element={<CartPage />}/>
             </Routes>
             </Container>
         </StyledEngineProvider>
