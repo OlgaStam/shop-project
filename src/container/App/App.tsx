@@ -26,7 +26,7 @@ const App = (props: Props) => {
         <StyledEngineProvider injectFirst>
             <CssBaseline />
             <Header productsInCart={productsInCart} />
-                        <Main addProductToCart={addProductToCart} />
+            <Main addProductToCart={addProductToCart} />
         </StyledEngineProvider>
     )
 }
