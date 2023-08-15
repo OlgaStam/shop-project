@@ -1,13 +1,5 @@
 import { Product } from 'utils/productsArray'
-// type Props = {}
-// const CartProductListItem = (props: Props) => {
-//   return (
-//    <div key={productId}>
-//                     {productsObject[parseInt(productId)].title}:{' '}
-//                     {productsInCart[parseInt(productId)]}
-//                 </div>
-//   )
-// }
+
 type Props = {
     product: Product
     productCount: number
