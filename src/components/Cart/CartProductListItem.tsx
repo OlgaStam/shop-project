@@ -1,7 +1,5 @@
-// type Props = {}
-
 import { Product } from 'utils/productsArray'
-
+// type Props = {}
 // const CartProductListItem = (props: Props) => {
 //   return (
 //    <div key={productId}>
