@@ -27,22 +27,35 @@ const App = (props: Props) => {
             [id]: (prevState[id] || 0) + count, //если prevState[id] возвращает не число - ставим 0
         }))
     }
+    const removeProductFromCart = (id: number) => {
+        setProductsInCart((prevState) => {
+            let prevProductsInCart = { ...prevState }
+            delete prevProductsInCart[id]
+            return prevProductsInCart
+        })
+    }
 
     return (
         <StyledEngineProvider injectFirst>
             <CssBaseline />
             <Header productsInCart={productsInCart} />
+            <button onClick={() => removeProductFromCart(1)}>
+                Remove Product
+            </button>
             <Container>
-            <Routes>
-                <Route
-                    path="/"
-                    element={<Home addProductToCart={addProductToCart} />}
-                />
-                <Route path='/about-us' element={<AboutUs />}/>
-                <Route path='/payment' element={<Payment />}/>
-                <Route path='/shipping' element={<Shipping />}/>
-                <Route path='/cart' element={<CartPage productsInCart={productsInCart} />}/>
-            </Routes>
+                <Routes>
+                    <Route
+                        path="/"
+                        element={<Home addProductToCart={addProductToCart} />}
+                    />
+                    <Route path="/about-us" element={<AboutUs />} />
+                    <Route path="/payment" element={<Payment />} />
+                    <Route path="/shipping" element={<Shipping />} />
+                    <Route
+                        path="/cart"
+                        element={<CartPage productsInCart={productsInCart} />}
+                    />
+                </Routes>
             </Container>
         </StyledEngineProvider>
     )
