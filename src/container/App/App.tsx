@@ -9,6 +9,7 @@ import CartPage from 'pages/Cart/CartPage'
 import AboutUs from 'pages/AboutUs/AboutUs'
 import Payment from 'pages/Payment/Payment'
 import Shipping from 'pages/Shipping/Shipping'
+import { omit } from 'lodash'
 
 type Props = {}
 
@@ -27,12 +28,9 @@ const App = (props: Props) => {
             [id]: (prevState[id] || 0) + count, //если prevState[id] возвращает не число - ставим 0
         }))
     }
+   
     const removeProductFromCart = (id: number) => {
-        setProductsInCart((prevState) => {
-            let prevProductsInCart = { ...prevState }
-            delete prevProductsInCart[id]
-            return prevProductsInCart
-        })
+        setProductsInCart((prevState) => omit(prevState, [id]))
     }
 
     return (
