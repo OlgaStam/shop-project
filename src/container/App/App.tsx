@@ -41,7 +41,7 @@ const App = (props: Props) => {
                 <Route path='/about-us' element={<AboutUs />}/>
                 <Route path='/payment' element={<Payment />}/>
                 <Route path='/shipping' element={<Shipping />}/>
-                <Route path='/cart' element={<CartPage productsInCart={{}} />}/>
+                <Route path='/cart' element={<CartPage productsInCart={productsInCart} />}/>
             </Routes>
             </Container>
         </StyledEngineProvider>
