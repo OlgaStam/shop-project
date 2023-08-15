@@ -35,7 +35,7 @@ const Header = ({ productsInCart }: Props) => {
                         component="div"
                         sx={{
                             flexGrow: 1,
-                            marginTop: '8px',
+                            marginTop: '11px',
                         }}
                     >
                         <Logo />
