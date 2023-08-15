@@ -7,8 +7,9 @@
 // }
 
 // export default CartProductListItemExtended
-import { Card, CardContent, Grid } from '@mui/material'
+import { Button, Card, CardContent, Grid } from '@mui/material'
 import { Product } from 'utils/productsArray'
+import DeleteIcon  from '@mui/icons-material/Delete'
 
 type Props = {
     product: Product
@@ -33,6 +34,13 @@ const CartProductListItemExtended = ({ product, productCount }: Props) => {
                     <div className="product-features">
                         Count: {productCount}
                     </div>
+                    <Button
+                        variant="outlined"
+                        // onClick={() => removeProductFromCart(product.id)}
+                    >
+                        <DeleteIcon />
+                        Remove
+                    </Button>
                 </CardContent>
             </Card>
         </Grid>
