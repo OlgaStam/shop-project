@@ -24,13 +24,15 @@ const CartProductListItemExtended = ({ product, productCount }: Props) => {
                         <img src={product.image} alt="" />
                     </div>
                     <div className="product-title">{product.title}</div>
-                    <div className="product-descrpition">
+                    <div className="product-description">
                         {product.description}
                     </div>
-                    <div className="product-descrpition">
+                    <div className="product-description">
                         Price for one item: ${product.price}
                     </div>
-                    <div>Count: {productCount}</div>
+                    <div className="product-features">
+                        Count: {productCount}
+                    </div>
                 </CardContent>
             </Card>
         </Grid>
