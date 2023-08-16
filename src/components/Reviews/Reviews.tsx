@@ -1,4 +1,4 @@
-import { Card, CardContent, Typography } from '@mui/material'
+import { Button, Card, CardContent, TextField, TextareaAutosize, Typography } from '@mui/material'
 import { useState } from 'react'
 
 type Props = {}
@@ -70,6 +70,20 @@ key={i} - присваивание уникального ключа для ка
 <CardContent> - компонент содержимого карточки, где располагаются данные отзыва.
 <Typography variant="h6" component="div">{name}:</Typography> - компонент Typography из библиотеки Material-UI, используемый для отображения имени отзыва с определенным вариантом (variant="h6") и компонентом (component="div").
 <div>{text}</div> - отображение текста отзыва внутри элемента div. */}
+
+<form>
+    <Typography variant='h5' component={"div"}>
+Please leave a review
+    </Typography>
+    <div>
+        <TextField size="small" placeholder='Your name'  />
+    </div>
+    <br/>
+    <div>
+        <TextareaAutosize minRows={5} placeholder='Your massage' />
+    </div>
+    <Button variant='outlined'>Add Review</Button>
+</form>
         </>
     )
 }
