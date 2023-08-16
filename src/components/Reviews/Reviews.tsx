@@ -69,7 +69,16 @@ const Reviews = (props: Props) => {
     // Улучшает читаемость и понимание кода, так как типы аргументов явно указываются в определении функции.
     //
     // setNewReview((prevState: ReviewType) => ({ ...prevState, name: e.target.value })) - вызывает функцию setNewReview, которая обновляет состояние newReview на основе предыдущего состояния (prevState) и присваивает новое значение имени (e.target.value).
-    console.log(newReview)
+
+    // в консоли видно, как в объект записывается каждый введенный символ
+    // console.log(newReview)
+
+    // 9. ф-я чтобы стр не перезагружалась от формы
+    const onSend = (e: React.FormEvent<HTMLFormElement>) => {
+        e.preventDefault()
+        
+    }
+
     return (
         <>
             <Typography
@@ -112,7 +121,9 @@ key={i} - присваивание уникального ключа для ка
 <Typography variant="h6" component="div">{name}:</Typography> - компонент Typography из библиотеки Material-UI, используемый для отображения имени отзыва с определенным вариантом (variant="h6") и компонентом (component="div").
 <div>{text}</div> - отображение текста отзыва внутри элемента div. */}
 
-            <form>
+
+{/* 10. передаем onSabmit чтобы по нажатию кнопки стр не перезагружалась и не отправляла д-е*/}
+            <form onSubmit={onSend}>
                 <Typography variant="h5" component={'div'}>
                     Please leave a review
                 </Typography>
@@ -137,7 +148,8 @@ key={i} - присваивание уникального ключа для ка
                         onChange={handleChangeText}
                     />
                 </div>
-                <Button variant="outlined">Add Review</Button>
+                {/* 8. добавляем тип submit, потому что без него кнопка ничего не отсылает. при клике страница перезагружается, потому что это стандартное поведение формы, это нужно отменить, для этого еще одна ф-я */}
+                <Button variant="outlined" type='submit'>Add Review</Button>
             </form>
         </>
     )
