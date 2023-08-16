@@ -1,4 +1,11 @@
-import { Button, Card, CardContent, TextField, TextareaAutosize, Typography } from '@mui/material'
+import {
+    Button,
+    Card,
+    CardContent,
+    TextField,
+    TextareaAutosize,
+    Typography,
+} from '@mui/material'
 import { useState } from 'react'
 
 type Props = {}
@@ -18,7 +25,7 @@ const Reviews = (props: Props) => {
             text: 'Thank you for the wonderful service and excellent selection of iPhones in your store! I was pleasantly surprised with the quick delivery and high quality of the product. Great store for those who want to buy a quality iPhone at an affordable price. I recommend it!',
         },
     ]
-    // прописываем стейт, указываем тип - массив
+    // 1. прописываем стейт для всех отзывов, указываем тип - массив
 
     const [reviews, setReviews] = useState<ReviewType[]>(arrReviews)
 
@@ -29,6 +36,40 @@ const Reviews = (props: Props) => {
     // arrReviews - это массив, который служит начальным значением состояния переменной reviews.
     // Вместе эти строки кода объявляют переменную reviews и функцию setReviews, которая будет использоваться для обновления значения переменной reviews. При помощи хука useState вы можете получить текущее значение состояния переменной reviews и функцию setReviews, которая позволяет обновлять это значение.
 
+    //3. прописываем стейт для данных полученных из формы от пользователя
+
+    const [newReview, setNewReview] = useState<ReviewType>({
+        name: '',
+        text: '',
+    })
+    // 6. чтобы можно было писать в полях формы нужна ф-я (эта для имени - <HTMLInputElement>)
+    const handleChangeName = (e: React.ChangeEvent<HTMLInputElement>) => {
+        setNewReview((prevState: ReviewType) => ({
+            ...prevState,
+            name: e.target.value,
+        }))
+    }
+    // (эта для текста - <HTMLTextAreaElement>)
+    const handleChangeText = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
+        setNewReview((prevState: ReviewType) => ({
+            ...prevState,
+            text: e.target.value,
+        }))
+    }
+
+    // Данный код представляет собой функцию handleChangeName, которая обрабатывает изменение значения в поле ввода и обновляет состояние newReview с новым значением имени.
+    // (e: React.ChangeEvent<HTMLInputElement>) - указывает на тип события изменения значения в поле ввода (ChangeEvent<HTMLInputElement>) и принимает его в качестве аргумента.
+    //
+    //     В данном случае, функция handleChangeName объявляется с аргументом e типа React.ChangeEvent<HTMLInputElement>. Здесь React.ChangeEvent - это обобщенный тип данных, предоставляемый библиотекой React, который представляет событие изменения элемента формы, а <HTMLInputElement> указывает, что это событие относится к элементу <input> типа HTMLInputElement. Таким образом, функция handleChangeName ожидает получить событие изменения значения в поле ввода типа HTMLInputElement.
+
+    // Указание типа аргумента функции имеет несколько преимуществ:
+
+    // Помогает обеспечить корректность типов данных и предотвратить ошибки во время выполнения, так как TypeScript или другой статический анализатор типов может проверить, соответствует ли переданный аргумент указанному типу.
+    // Позволяет IDE (среде разработки) предоставлять подсказки и автодополнение на основе типа аргумента, что упрощает разработку и предотвращает опечатки.
+    // Улучшает читаемость и понимание кода, так как типы аргументов явно указываются в определении функции.
+    //
+    // setNewReview((prevState: ReviewType) => ({ ...prevState, name: e.target.value })) - вызывает функцию setNewReview, которая обновляет состояние newReview на основе предыдущего состояния (prevState) и присваивает новое значение имени (e.target.value).
+    console.log(newReview)
     return (
         <>
             <Typography
@@ -42,7 +83,7 @@ const Reviews = (props: Props) => {
             >
                 Reviews
             </Typography>
-            {/* выводим массив отзывов*/}
+            {/* 2. выводим массив отзывов*/}
             {reviews.map(({ name, text }: ReviewType, i) => (
                 <Card
                     variant="outlined"
@@ -71,19 +112,33 @@ key={i} - присваивание уникального ключа для ка
 <Typography variant="h6" component="div">{name}:</Typography> - компонент Typography из библиотеки Material-UI, используемый для отображения имени отзыва с определенным вариантом (variant="h6") и компонентом (component="div").
 <div>{text}</div> - отображение текста отзыва внутри элемента div. */}
 
-<form>
-    <Typography variant='h5' component={"div"}>
-Please leave a review
-    </Typography>
-    <div>
-        <TextField size="small" placeholder='Your name'  />
-    </div>
-    <br/>
-    <div>
-        <TextareaAutosize minRows={5} placeholder='Your massage' />
-    </div>
-    <Button variant='outlined'>Add Review</Button>
-</form>
+            <form>
+                <Typography variant="h5" component={'div'}>
+                    Please leave a review
+                </Typography>
+                <div>
+                    <TextField
+                        size="small"
+                        placeholder="Your name"
+                        // 5. связываем поля со стейтом
+                        value={newReview.name}
+                        // 7. подключаем функцию
+                        onChange={handleChangeName}
+                    />
+                </div>
+                <br />
+                <div>
+                    <TextareaAutosize
+                        minRows={5}
+                        placeholder="Your massage"
+                        // 5. связываем поля со стейтом
+                        value={newReview.text}
+                        // 7. подключаем функцию
+                        onChange={handleChangeText}
+                    />
+                </div>
+                <Button variant="outlined">Add Review</Button>
+            </form>
         </>
     )
 }
