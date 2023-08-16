@@ -74,9 +74,21 @@ const Reviews = (props: Props) => {
     // console.log(newReview)
 
     // 9. ф-я чтобы стр не перезагружалась от формы
+    // 11. полученные данные добавляем к предыдущим коментариям
     const onSend = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault()
-        
+        if (newReview.name === '' || newReview.text === '') {
+            alert('All fields are required')
+        } else {
+            setReviews((prevState: ReviewType[]) => {
+                return [...prevState, newReview]
+            })
+            // 12. почистили поля формы
+            setNewReview({
+                name: '',
+                text: '',
+            })
+        }
     }
 
     return (
