@@ -4,7 +4,7 @@ import { useState } from 'react'
 import Quantity from 'components/Quantity/Quantity'
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import FavoriteIcon from '@mui/icons-material/Favorite';
-import { useAppSelector } from 'container/redux/hooks';
+import { useAppDispatch, useAppSelector } from 'container/redux/hooks';
 
 type Props = {
     id: number
@@ -37,41 +37,53 @@ const ProductListItem = ({
         setCount((prevState) => prevState - 1)
     }
 
-const isLiked = useAppSelector((state)=> state.productsLikeState[id])
-
+    const isLiked = useAppSelector((state) => state.productsLikeState[id])
+    const dispatch = useAppDispatch()
     return (
         <Card variant="outlined">
             <CardContent>
-                {/* 3. добавили иконки лайков с проверкой */}
-                <Button variant='outlined'>
+                <Button variant='outlined' onClick={() => {
+                    if (isLiked) {
+                        dispatch({
+                            type: "REMOVE_LIKE",
+                            id,
+                        })
+                    } else {
+                        dispatch({
+                            type: "ADD_LIKE",
+                            id,
+                        })
+                    }
+                }
+                }>
                 {isLiked ? <FavoriteIcon /> : <FavoriteBorderIcon />}
+            </Button>
+            <div className="product-image">
+                <img src={image} alt={title} />
+            </div>
+            <h2 className="product-title">{title}</h2>
+            <p className="product-description">{description}</p>
+            <div className="product-features">Type: {type}</div>
+            <div className="product-features">Capacity: {capacity} Gb</div>
+            <div className="product-price">
+                Price: <span>${price}</span>
+            </div>
+            <Quantity
+                count={count}
+                onDecrementClick={onDecrementClick}
+                onIncrementClick={onIncrementClick}
+                minCount={1}
+            />
+            <div className="btns-wrap">
+                <Button
+                    variant="outlined"
+                    onClick={() => addProductToCart(id, count)}
+                >
+                    Add to cart
                 </Button>
-                <div className="product-image">
-                    <img src={image} alt={title} />
-                </div>
-                <h2 className="product-title">{title}</h2>
-                <p className="product-description">{description}</p>
-                <div className="product-features">Type: {type}</div>
-                <div className="product-features">Capacity: {capacity} Gb</div>
-                <div className="product-price">
-                    Price: <span>${price}</span>
-                </div>
-                <Quantity
-                    count={count}
-                    onDecrementClick={onDecrementClick}
-                    onIncrementClick={onIncrementClick}
-                    minCount={1}
-                />
-                <div className="btns-wrap">
-                    <Button
-                        variant="outlined"
-                        onClick={() => addProductToCart(id, count)}
-                    >
-                        Add to cart
-                    </Button>
-                </div>
-            </CardContent>
-        </Card>
+            </div>
+        </CardContent>
+        </Card >
     )
 }
 
