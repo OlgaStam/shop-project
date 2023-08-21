@@ -1,5 +1,5 @@
 // import { AnyAction } from '@reduxjs/toolkit'
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice } from '@reduxjs/toolkit'
 
 type State = {
     [id: number]: boolean
@@ -11,21 +11,17 @@ const initialState: State = {
 }
 
 export const likeReducer = createSlice({
-    name:"like",
+    name: 'like',
     initialState,
-    reducers:{        
-        addLike:(state,action) => ({
+    reducers: {
+        toggleLike: (state, action) => ({
             ...state,
-            [action.payload]:true
+            [action.payload]: !state[action.payload],
         }),
-        removeLike:(state,action) => ({
-            ...state,
-            [action.payload]:false
-        })
     },
 })
 
-export const {addLike,removeLike} = likeReducer.actions
+export const { toggleLike } = likeReducer.actions
 
 // const likeReducer = (state = initialState, action: AnyAction) => {
 //     switch (action.type) {
@@ -34,7 +30,7 @@ export const {addLike,removeLike} = likeReducer.actions
 //                 ...state,
 //                 [action.id]: !state[action.id],
 //             }
-        
+
 //         default:
 //             return state
 //     }
