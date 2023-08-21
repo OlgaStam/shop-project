@@ -4,7 +4,7 @@ import DeleteIcon from '@mui/icons-material/Delete'
 import Quantity from 'components/Quantity/Quantity'
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder'
 import FavoriteIcon from '@mui/icons-material/Favorite'
-import { useAppDispatch, useAppSelector } from 'container/redux/hooks'
+import { useAppDispatch, useAppSelector } from 'redux/hooks'
 
 type Props = {
     product: Product
