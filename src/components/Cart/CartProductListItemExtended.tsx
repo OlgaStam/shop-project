@@ -60,14 +60,19 @@ const CartProductListItemExtended = ({
                                     id: product.id,
                                 })
                             } else {
-                                changeProductQuantity(
-                                    product.id,
-                                    productCount - 1
-                                )
+                                dispatch({
+                                    type: 'change-product-quantity',
+                                    id: product.id,
+                                    count: productCount - 1
+                            })
                             }
                         }}
                         onIncrementClick={() =>
-                            changeProductQuantity(product.id, productCount + 1)
+                            dispatch({
+                                type: 'change-product-quantity',
+                                id: product.id,
+                                count: productCount +1
+                        })
                         }
                         minCount={0}
                     />
