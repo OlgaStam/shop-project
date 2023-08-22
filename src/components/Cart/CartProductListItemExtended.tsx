@@ -9,33 +9,35 @@ import { useAppDispatch, useAppSelector } from 'redux/hooks'
 type Props = {
     product: Product
     productCount: number
-    removeProductFromCart: (id: number) => void
-    changeProductQuantity: (id: number, count:number) => void
+    changeProductQuantity: (id: number, count: number) => void
 }
 
 const CartProductListItemExtended = ({
     product,
     productCount,
-    removeProductFromCart,
     changeProductQuantity,
 }: Props) => {
-    const isLiked = useAppSelector((state) => state.productsLikeState[product.id])
+    const isLiked = useAppSelector(
+        (state) => state.productsLikeState[product.id]
+    )
+
     const dispatch = useAppDispatch()
+
     return (
         <Grid item xs={12} sm={4}>
             <Card variant="outlined">
                 <CardContent>
-                <Button
-                    variant="outlined"
-                    onClick={() => {
-                        dispatch({
-                            type: 'TOGGLE_LIKE',
-                            id:product.id,
-                        })
-                    }}
-                >
-                    {isLiked ? <FavoriteIcon /> : <FavoriteBorderIcon />}
-                </Button>
+                    <Button
+                        variant="outlined"
+                        onClick={() => {
+                            dispatch({
+                                type: 'TOGGLE_LIKE',
+                                id: product.id,
+                            })
+                        }}
+                    >
+                        {isLiked ? <FavoriteIcon /> : <FavoriteBorderIcon />}
+                    </Button>
                     <div className="product-image">
                         <img src={product.image} alt="" />
                     </div>
@@ -53,15 +55,17 @@ const CartProductListItemExtended = ({
                         count={productCount}
                         onDecrementClick={() => {
                             if (productCount <= 1) {
-                                removeProductFromCart(product.id)
-                            }
-                            else {
-                                changeProductQuantity( 
+                                dispatch({
+                                    type: 'remove-product-from-cart',
+                                    id: product.id,
+                                })
+                            } else {
+                                changeProductQuantity(
                                     product.id,
                                     productCount - 1
                                 )
                             }
-                        }} 
+                        }}
                         onIncrementClick={() =>
                             changeProductQuantity(product.id, productCount + 1)
                         }
@@ -69,7 +73,12 @@ const CartProductListItemExtended = ({
                     />
                     <Button
                         variant="outlined"
-                        onClick={() => removeProductFromCart(product.id)}
+                        onClick={() => {
+                            dispatch({
+                                type: 'remove-product-from-cart',
+                                id: product.id,
+                            })
+                        }}
                     >
                         <DeleteIcon />
                         Remove
