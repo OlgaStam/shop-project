@@ -17,6 +17,14 @@ const cartReducer = (state = initialStat, action: AnyAction) => {
             case "remove-product-from-cart":{
                 return omit(state, action.id)
             }
+            
+            case "change-product-quantity":{
+                return {
+                    ...state,
+                 [action.id]:action.count,  
+                }
+            }
+
             default:
               return state
     }
