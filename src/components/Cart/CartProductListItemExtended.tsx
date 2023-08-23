@@ -15,7 +15,6 @@ type Props = {
 const CartProductListItemExtended = ({
     product,
     productCount,
-    changeProductQuantity,
 }: Props) => {
     const isLiked = useAppSelector(
         (state) => state.productsLikeState[product.id]

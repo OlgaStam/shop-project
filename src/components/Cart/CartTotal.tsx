@@ -13,8 +13,8 @@ type productsObjectType = {
 const CartTotal = ({ productsInCart }: Props) => {
     const productsObject: productsObjectType = getProductsObject(productsArray)
     return (
-        <div>
-            Total: ${' '}
+        <>
+            {' '}Total: ${' '}
             {Object.keys(productsInCart).reduce(
                 (total, productId) =>
                     total +
@@ -22,7 +22,7 @@ const CartTotal = ({ productsInCart }: Props) => {
                         productsInCart[parseInt(productId)],
                 0
             )}
-        </div>
+        </>
     )
 }
 

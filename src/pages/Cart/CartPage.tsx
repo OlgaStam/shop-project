@@ -38,8 +38,16 @@ const productsInCart= useAppSelector((state)=>state.productsInCart)
                     changeProductQuantity={changeProductQuantity}
                 />
             </Grid>
-
-            <CartTotal productsInCart={productsInCart} />
+<hr/>
+            <Typography
+                    variant="h6"
+                    component="h6"
+                    sx={{
+                        margin: '10px 0',
+                    }}
+                >
+                   <CartTotal productsInCart={productsInCart} />
+                </Typography>
         </div>
     )
 }
